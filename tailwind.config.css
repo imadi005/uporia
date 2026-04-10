@@ -1,0 +1,21 @@
+extend: {
+    animation: {
+      'fade-in-up': 'fadeInUp 1.2s ease-out both',
+      flipIn: 'flipIn 1.2s ease-out both',
+    },
+    keyframes: {
+      fadeInUp: {
+        '0%': { opacity: 0, transform: 'translateY(30px)' },
+        '100%': { opacity: 1, transform: 'translateY(0)' },
+      },
+      flipIn: {
+        '0%': { transform: 'rotateX(-90deg)', opacity: 0 },
+        '100%': { transform: 'rotateX(0)', opacity: 1 },
+      },
+    },
+  }
+
+  plugins: [
+  require('tailwind-scrollbar')({ nocompatible: true }),
+],
+  
