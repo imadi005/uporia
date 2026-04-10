@@ -94,7 +94,7 @@ export async function POST(req: Request) {
 export async function GET() {
   try {
     await connectMongo();
-    const products = await Product.find().sort({ createdAt: -1 });
+    const products = await Product.find({}).sort({ createdAt: -1 });
     return NextResponse.json({ products }, { status: 200 });
   } catch (err) {
     console.error('❌ Fetch Error:', err);
