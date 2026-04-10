@@ -1,15 +1,15 @@
-// ✅ Fix
-import { Suspense } from 'react';
+'use client'
+import { useState, useEffect } from 'react'
+import StartupBoot from './StartupBoot'
+import { useRouter } from 'next/navigation'
 
-function PreviewContent() {
-  const searchParams = useSearchParams();
-  // ... baaki saara code yahan
-}
+export default function Home() {
+  const [booted, setBooted] = useState(false)
+  const router = useRouter()
 
-export default function PreviewPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <PreviewContent />
-    </Suspense>
-  );
+  useEffect(() => {
+    if (booted) router.push('/dashboard')
+  }, [booted, router])
+
+  return <StartupBoot onComplete={() => setBooted(true)} />
 }
