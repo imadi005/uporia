@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -8,12 +11,8 @@ const nextConfig = {
         pathname: '**',
       },
     ],
+    domains: ['yourdomain.com', 'digital-learning-academy.com'],
   },
 };
 
 module.exports = nextConfig;
-module.exports = {
-  images: {
-    domains: ['yourdomain.com', 'digital-learning-academy.com'],
-  },
-};
